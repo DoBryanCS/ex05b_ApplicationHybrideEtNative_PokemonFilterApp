@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 import { DropdownsComponent } from "./components/DropdownsComponent";
 import { PokemonComponent } from "./components/PokemonComponent";
 
@@ -37,19 +37,19 @@ class App extends Component {
   };
 
   render() {
-    let filteredHabitat = this.state.pokemons;
+    let filtreur = this.state.pokemons;
     if (this.state.filterHabitat !== "") {
-      filteredHabitat = filteredHabitat.filter((a) => {
+      filtreur = filtreur.filter((a) => {
         return a.habitat.name.includes(this.state.filterHabitat);
       });
     }
     if (this.state.filterSpecies !== "") {
-      filteredHabitat = filteredHabitat.filter((a) => {
+      filtreur = filtreur.filter((a) => {
         return a.species.name.includes(this.state.filterSpecies);
       });
     }
     if (this.state.filterPoketypes !== "") {
-      filteredHabitat = filteredHabitat.filter((a) => {
+      filtreur = filtreur.filter((a) => {
         for (let index = 0; index < a.poketypes.length; index++) {
           if (a.poketypes[index].name === this.state.filterPoketypes) {
             return a.poketypes[index].name === this.state.filterPoketypes;
@@ -64,7 +64,7 @@ class App extends Component {
           handleChangeSpecies={this.handleChangeSpecies}
           handleChangePoketypes={this.handleChangePoketypes}
         />
-        <PokemonComponent filteredHabitat={filteredHabitat} />
+        <PokemonComponent filtreur={filtreur} />
       </>
     );
   }

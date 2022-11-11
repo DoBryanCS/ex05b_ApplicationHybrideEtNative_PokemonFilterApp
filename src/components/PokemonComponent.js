@@ -5,7 +5,7 @@ function PokemonComponent(props) {
 
   return (
     <div id="pokemons" className="row columns is-multiline is-mobile">
-    {props.filteredHabitat.map((pokemon) => {
+    {props.filtreur.map((pokemon) => {
         let poke = ''
         for (let index = 0; index < pokemon.poketypes.length; index++) {
             if (poke.length === 0) {
